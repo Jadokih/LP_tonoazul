@@ -1,0 +1,8 @@
+{
+  "name": "Tô no Azul",
+  "description": "Seu dinheiro sob controle. Sua cabeça mais tranquila. Agente de finanças pessoais que ajuda você a organizar gastos e acompanhar contas pelo WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
