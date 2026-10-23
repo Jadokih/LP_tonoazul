@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { HowItWorks } from './components/HowItWorks';
@@ -9,20 +9,12 @@ import { Pricing } from './components/Pricing';
 import { MascotCallout } from './components/MascotCallout';
 import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
-import { WhatsAppModal } from './components/WhatsAppModal';
-import { APP_CONFIG } from './config/appConfig';
+import { APP_CONFIG, getWhatsAppLink } from './config/appConfig';
 
 export default function App() {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalMessage, setModalMessage] = useState(APP_CONFIG.messages.heroTrial);
-
   const handleOpenActionModal = (customMessage?: string) => {
-    setModalMessage(customMessage || APP_CONFIG.messages.heroTrial);
-    setModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setModalOpen(false);
+    const message = customMessage || APP_CONFIG.messages.heroTrial;
+    window.location.href = getWhatsAppLink(message);
   };
 
   return (
@@ -59,13 +51,6 @@ export default function App() {
 
       {/* Footer with legal navigation */}
       <Footer />
-
-      {/* Interactive WhatsApp Connection Modal */}
-      <WhatsAppModal
-        isOpen={modalOpen}
-        onClose={handleCloseModal}
-        customMessage={modalMessage}
-      />
     </div>
   );
 }
